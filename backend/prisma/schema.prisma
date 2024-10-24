@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// if i am gonna switch to mongodb ,some changes need to be done in the schemas 
+
+model User {
+  id        String   @id @default(uuid()) // uuid will be better
+  email     String   @unique
+  username  String   @unique
+  password  String
+  avatar    String?
+  createdAt DateTime @default(now())
+  post      Post[]
+}
+
+// npm prisma db push
+// npx prisma migrate dev --name init : this is the one
+
+model Post {
+  // can't do enum with sql ,rather work aroung that in backend
+  // in schema set them as String
+  id        String   @id @default(uuid()) // uuid will be better
+  title     String
+  price     Int
+  img       String
+  address   String
+  city      String
+  bedroom   Int
+  bathroom  Int
+  latitude  String
+  longitude String
+  // enum in js ?
+  type      String
+  property  String
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// sqlite doesn't supprot enum
+// enum PostType {
+//   BUY
+//   RENT
+// }
+//
+// enum PropertyType {
+//   FLAT
+//   HOUSE
+//   CONDO
+//   LAND
+// }

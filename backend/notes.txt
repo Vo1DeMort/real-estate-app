@@ -1,0 +1,8 @@
+# user acc fot testing
+  username: 'outofname',
+  email: 'outofname@gmail.com',
+  password: 'asdfgh'
+
+  username: 'papajohn5',
+  email: 'papajohn5@gmail.com',
+  password: 'papa123'
