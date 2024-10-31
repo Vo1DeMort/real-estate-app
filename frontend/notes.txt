@@ -1,0 +1,1 @@
+certain services don't support cretain regions : i should keep that in mind

@@ -28,22 +28,24 @@ model User {
 model Post {
   // can't do enum with sql ,rather work aroung that in backend
   // in schema set them as String
-  id        String   @id @default(uuid()) // uuid will be better
-  title     String
-  price     Int
-  img       String
-  address   String
-  city      String
-  bedroom   Int
-  bathroom  Int
-  latitude  String
-  longitude String
+  id         String      @id @default(uuid()) // uuid will be better
+  title      String
+  price      Int
+  image      String // this is comprimized to store one img , should be four imgs
+  address    String
+  city       String
+  bedroom    Int
+  bathroom   Int
+  // these coordinates should be unique
+  latitude   String
+  longitude  String
   // enum in js ?
-  type      String
-  property  String
-  createdAt DateTime @default(now())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
+  type       String
+  property   String
+  createdAt  DateTime    @default(now())
+  userId     String
+  user       User        @relation(fields: [userId], references: [id])
+  PostDetail PostDetail? //  oneToOne 
 }
 
 // sqlite doesn't supprot enum
@@ -58,3 +60,17 @@ model Post {
 //   CONDO
 //   LAND
 // }
+
+model PostDetail {
+  id           String  @id @default(uuid())
+  decscription String
+  utilities    String?
+  pet          String?
+  income       String?
+  size         Int?
+  school       Int?
+  bus          Int?
+  restrustrant Int?
+  post         Post    @relation(fields: [postId], references: [id])
+  postId       String  @unique
+}

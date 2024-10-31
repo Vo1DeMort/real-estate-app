@@ -5,8 +5,8 @@ import cookieParser from "cookie-parser";
 
 // local
 import authRoute from "./routes/auth.routes.js";
-//import authorizationRoute from "./routes/test.routes.js";
 import userRoute from "./routes/user.routes.js";
+import postRoute from "./routes/post.routes.js";
 
 const app = express();
 
@@ -17,14 +17,14 @@ app.use(cookieParser());
 
 //end points
 app.use("/api/auth", authRoute);
-//app.use("/api/authorization", authorizationRoute); // this might not be needed anymore, i have middlewares now
 app.use("/api/user", userRoute);
+app.use("/api/post", postRoute);
 
 // actiate server
 app.listen(8000, () => {
   console.log("server is ready ");
 });
 
-// 2:25 hr
+// 3:14hr
 
-// have an error with is login middleware and updating ,
+/* adding latitude and longitude manually is not  optimal  ,how can i do this better */

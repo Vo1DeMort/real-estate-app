@@ -9,6 +9,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Profile from "./routes/profile/Profile";
 import ProfileUpdate from "./routes/profileUpdate/ProfileUpdate";
 import Register from "./routes/register/Register";
+import NewPostPage from "./routes/newPostPage/NewPostPage";
+import { listPageLoader, singlePageLoader } from "./lib/loaders";
 
 export default function App() {
   // 1:09 to revisit about the react router dom
@@ -25,10 +27,12 @@ export default function App() {
         {
           path: "/list",
           element: <ListPage />,
+          loader: listPageLoader,
         },
         {
           path: "/:id",
           element: <SinglePage />,
+          loader: singlePageLoader,
         },
         {
           path: "/login",
@@ -53,6 +57,10 @@ export default function App() {
         {
           path: "/profile/update",
           element: <ProfileUpdate />,
+        },
+        {
+          path: "/add",
+          element: <NewPostPage />,
         },
       ],
     },

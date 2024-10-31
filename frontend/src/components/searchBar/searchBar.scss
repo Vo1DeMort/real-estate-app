@@ -74,20 +74,26 @@
           width: auto; /* what does auto do */
         }
       }
+      a {
+        flex: 1;
+        background-color: #fece51;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      button {
-        border: none;
-        cursor: pointer; /* show an index finger instead of pointer */
-        background: #fece51;
-        flex: 1; /* shorthand for flexgrow ,flexshrink and flexbasic */
+        button {
+          border: none;
+          cursor: pointer;
+          background-color: #fece51;
 
-        @include sm {
-          padding: 10px;
-        }
+          @include sm {
+            padding: 10px;
+          }
 
-        img {
-          width: 24px;
-          height: 24px;
+          img {
+            width: 24px;
+            height: 24px;
+          }
         }
       }
     }
