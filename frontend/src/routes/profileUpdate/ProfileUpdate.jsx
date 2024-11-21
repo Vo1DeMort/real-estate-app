@@ -66,7 +66,6 @@ export default function ProfileUpdate() {
           alt=""
           className="avatar"
         />
-        {/* handle img uploading */}
       </div>
     </div>
   );

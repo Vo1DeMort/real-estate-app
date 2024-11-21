@@ -11,7 +11,6 @@ export function Layout() {
         <Navbar />
       </div>
       <div className="content">
-        {/* what is this outlet */}
         <Outlet />
       </div>
     </div>

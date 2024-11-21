@@ -13,12 +13,10 @@ import NewPostPage from "./routes/newPostPage/NewPostPage";
 import { listPageLoader, singlePageLoader } from "./lib/loaders";
 
 export default function App() {
-  // 1:09 to revisit about the react router dom
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
-      // need to know more about this children thing
       children: [
         {
           path: "/",
@@ -44,15 +42,13 @@ export default function App() {
         },
       ],
     },
-    // auth required paths
-    // i dont' really understand about this concept
     {
       path: "/",
       element: <RequireAuth />,
       children: [
         {
           path: "/profile",
-          element: <Profile />, // this will depend on requireauth layout which demand login
+          element: <Profile />,
         },
         {
           path: "/profile/update",
@@ -65,7 +61,6 @@ export default function App() {
       ],
     },
   ]);
-  // need register and other routes
 
   return <RouterProvider router={router} />;
 }

@@ -20,11 +20,8 @@ export default function ListPage() {
       </div>
 
       <div className="mapContainer">
-        {/* this single post data is just one and i am uisng map in map componnet */}
         <Map items={posts} />
       </div>
     </div>
   );
 }
-
-// 1: 15

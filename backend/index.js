@@ -25,6 +25,4 @@ app.listen(8000, () => {
   console.log("server is ready ");
 });
 
-// 3:14hr
-
 /* adding latitude and longitude manually is not  optimal  ,how can i do this better */

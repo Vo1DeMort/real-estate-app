@@ -11,19 +11,9 @@ export default function Profile() {
   const { currentUser, updateCurrentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // so that profile page can't be accessed if not login
-  // implement this idea with RequireAuth layout
-  // useEffect(() => {
-  //   if (!currentUser) {
-  //     navigate("/login");
-  //   }
-  // }, [currentUser, navigate]); // why navigate is required here
-
   const handleLogout = async () => {
     try {
       await apiReq.post("/auth/logout");
-      // cookie is cleared from the backend
-      //localStorage.removeItem("user");
       updateCurrentUser(null);
       navigate("/");
     } catch (error) {
@@ -70,7 +60,6 @@ export default function Profile() {
       </div>
 
       <div className="chatContainer">
-        {/* i wanna improve this chat box and chat design */}
         <div className="wrapper">
           <Chat />
         </div>
